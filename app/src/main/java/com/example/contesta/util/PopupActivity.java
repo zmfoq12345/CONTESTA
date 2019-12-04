@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -16,9 +17,12 @@ import android.widget.TextView;
 import com.example.contesta.Model.DataBase;
 import com.example.contesta.R;
 
+import java.sql.Struct;
+
 public class PopupActivity extends Activity {
     private ImageView Pimg;
     private TextView Pname, Ptitle, Pdate;
+    private String urlstr;
     TextView txtText;
 
 
@@ -40,6 +44,8 @@ public class PopupActivity extends Activity {
         Pdate.setText(data[0]);
         Ptitle.setText(data[1]);
         Pname.setText(data[2]);
+        urlstr = data[3];
+        Log.d("url", "onCreate: "+urlstr);
         Pimg.setImageBitmap(DataBase.getCkImg());
     }
     public Bitmap StringToBitMap(String encodedString){
@@ -52,6 +58,10 @@ public class PopupActivity extends Activity {
             e.getMessage();
             return null;
         }
+    }
+
+    public void onClick(View view) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlstr)));
     }
 
     @Override

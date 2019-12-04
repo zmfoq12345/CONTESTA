@@ -22,11 +22,12 @@ public class DataBase {
         return idx;
     }
 
-    public static void setStr(String str1, String str2, String str3, String mark) {
+    public static void setStr(String str1, String str2, String str3, String mark, String url) {
         confInfo[idx][0] = str1;
         confInfo[idx][1] = str2;
         confInfo[idx][2] = str3;
         confInfo[idx][3] = mark;
+        confInfo[idx][4] = url;
     }
     public static void setImg(Bitmap img1) {
         confImg[idx++] = img1;

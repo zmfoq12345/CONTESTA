@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "988966272937",
+    "firebase_url": "https://contesta-fdccf.firebaseio.com",
+    "project_id": "contesta-fdccf",
+    "storage_bucket": "contesta-fdccf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988966272937:android:f464cd980d4e1b1f73ceb8",
+        "android_client_info": {
+          "package_name": "com.example.contesta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988966272937-kc6904tor6bm77hivn25dt69nngonevi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.contesta",
+            "certificate_hash": "cd8acfd5505490189f2cf95a81835876959cbafb"
+          }
+        },
+        {
+          "client_id": "988966272937-bue3cq7moa41q37f8ragjsjo60m6nr5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzzxmg36SItPp0_il8O8jJYjiYKg4fAck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988966272937-bue3cq7moa41q37f8ragjsjo60m6nr5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

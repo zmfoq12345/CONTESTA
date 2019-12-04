@@ -13,6 +13,16 @@
         android:textSize="40dp"
         android:text="나의 북마크"/>
 
+    <TextView
+        android:id="@+id/loginPlz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="로그인 후 이용가능합니다."
+        android:layout_marginTop="80dp"
+        android:textColor="#2E2E2E"
+        android:visibility="gone"
+        android:textSize="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="30dp"

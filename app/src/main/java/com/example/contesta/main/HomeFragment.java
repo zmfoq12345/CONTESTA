@@ -94,6 +94,10 @@ public class HomeFragment extends Fragment {
                 "https://image.fmkorea.com/files/attach/new/20190317/486616/291138520/1674527678/ffdee79774242891404ace7d985437c9.jpg",
                 "https://t1.daumcdn.net/cfile/tistory/2616FD35574F9F522C",
                 "https://post-phinf.pstatic.net/MjAxOTExMjVfMjM4/MDAxNTc0NjYyNjQ2NTM2.cSL6cHs7ik7qmot2AvzQLnmk8G-DgADCbC7OTFHiLjAg.5j0IKYZRsgZuPhubncXbLkjcq8sRpIyNUsXmRXed4Bwg.JPEG/%EB%89%B4%EC%8A%A41%EC%86%8C%EB%86%8D%EB%AF%BC.jpg?type=w1200");
+        List<String> listUrl = Arrays.asList(
+                "https://https://www.google.co.kr/",
+                "https://https://www.google.co.kr/",
+                "https://https://www.google.co.kr/");
         List<String> listDate = Arrays.asList(
                 "2019-10-24",
                 "2012-12-31",
@@ -112,10 +116,10 @@ public class HomeFragment extends Fragment {
                 // 각 List의 값들을 data 객체에 set 해줍니다.
                 Data data = new Data();
                 Log.d("tst", "getData: " + listName.get(i));
-                data.setStr(listDate.get(i), listTitle.get(i), listName.get(i), "false");
+                data.setStr(listDate.get(i), listTitle.get(i), listName.get(i), "false", listUrl.get(i));
                 data.setImg(UrlImg(listImg.get(i)));
 
-                DataBase.setStr(listDate.get(i), listTitle.get(i), listName.get(i), "false");
+                DataBase.setStr(listDate.get(i), listTitle.get(i), listName.get(i), "false", listUrl.get(i));
                 DataBase.setImg(UrlImg(listImg.get(i)));
                 // 각 값이 들어간 data를 adapter에 추가합니다.
                 adapter.addItem(data);
@@ -131,7 +135,7 @@ public class HomeFragment extends Fragment {
             for (int i = 0; i < DataBase.getIdx(); i++) {
                 // 각 List의 값들을 data 객체에 set 해줍니다.
                 Data data = new Data();
-                data.setStr(str[i][0], str[i][1], str[i][2], str[i][3]);
+                data.setStr(str[i][0], str[i][1], str[i][2], str[i][3], str[i][4]);
                 data.setImg(img[i]);
                 // 각 값이 들어간 data를 adapter에 추가합니다.
                 adapter.addItem(data);
