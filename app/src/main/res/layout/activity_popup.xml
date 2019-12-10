@@ -104,7 +104,7 @@
             android:layout_weight="1"
             android:layout_height="53dp"
             android:onClick="onClick"/>
-<!--            android:onClick="mOnInternet"/>-->
+        <!--            android:onClick="mOnInternet"/>-->
     </LinearLayout>
     <!--// 닫기 버튼 -->
 </LinearLayout>
