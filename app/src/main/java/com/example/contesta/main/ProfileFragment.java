@@ -1,6 +1,7 @@
 package com.example.contesta.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,6 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.contesta.Login.LoginActivity;
 import com.example.contesta.R;
+import com.example.contesta.util.AddPopupActivity;
+import com.example.contesta.util.PopupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,7 +31,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
     EditText editTextEmail;
     EditText editTextPassword;
-    Button buttonSignin,buttonSignup;
+    Button buttonSignin,buttonSignup, btn_add;
     TextView User_id;
     FirebaseAuth firebaseAuth;
 
@@ -58,8 +61,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         buttonSignin = (Button) view.findViewById(R.id.btn_Login);
         buttonSignin.setOnClickListener(this);
 
+        btn_add = (Button) view.findViewById(R.id.btn_add);
+        btn_add.setOnClickListener(this);
+
         if (LoginActivity.getLogin()){
             User_id.setVisibility(View.VISIBLE);
+            btn_add.setVisibility(View.VISIBLE);
             editTextEmail.setVisibility(View.GONE);
             editTextPassword.setVisibility(View.GONE);
             buttonSignin.setVisibility(View.GONE);
@@ -70,24 +77,31 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     }
     @Override
     public void onClick(View view) {
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
 
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(getView().getContext(), "email을 입력해 주세요.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(getView().getContext(), "password를 입력해 주세요.", Toast.LENGTH_SHORT).show();
-            return;
+        if(view == btn_add) {
+            Intent intent = new Intent(view.getContext(), AddPopupActivity.class);
+            startActivity(intent);
+        }else{
+
+            String email = editTextEmail.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
+
+            if(TextUtils.isEmpty(email)){
+                Toast.makeText(getView().getContext(), "email을 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(TextUtils.isEmpty(password)){
+                Toast.makeText(getView().getContext(), "password를 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(view == buttonSignin) {
+                userLogin(email, password);
+            }
+            if(view == buttonSignup) {
+                registerUser(email,password);
+            }
         }
 
-        if(view == buttonSignin) {
-            userLogin(email, password);
-        }
-        if(view == buttonSignup) {
-            registerUser(email,password);
-        }
     }
     //firebase userLogin method
     private void userLogin(String email, String password){
@@ -99,6 +113,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                         if(task.isSuccessful()) {
                             Toast.makeText(getView().getContext(), "로그인되었습니다!", Toast.LENGTH_LONG).show();
                             User_id.setVisibility(View.VISIBLE);
+                            btn_add.setVisibility(View.VISIBLE);
 
                             editTextEmail.setVisibility(View.GONE);
                             editTextPassword.setVisibility(View.GONE);

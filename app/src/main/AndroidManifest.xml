@@ -26,8 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".util.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
-        <activity android:name=".Login.SigninActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".util.AddPopupActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".main.HomeFragment"/>
         <activity android:name=".main.BookmarkFragment"/>
         <activity android:name=".main.ProfileFragment"/>

@@ -30,6 +30,28 @@ public class HomeFragment extends Fragment {
     private HomeRecyclerViewAdapter adapter;
     private Bitmap bitmap;
     private RecyclerView recyclerView;
+    public static List<String> listImg = Arrays.asList(
+            "https://image.fmkorea.com/files/attach/new/20190317/486616/291138520/1674527678/ffdee79774242891404ace7d985437c9.jpg",
+            "https://t1.daumcdn.net/cfile/tistory/2616FD35574F9F522C",
+            "https://post-phinf.pstatic.net/MjAxOTExMjVfMjM4/MDAxNTc0NjYyNjQ2NTM2.cSL6cHs7ik7qmot2AvzQLnmk8G-DgADCbC7OTFHiLjAg.5j0IKYZRsgZuPhubncXbLkjcq8sRpIyNUsXmRXed4Bwg.JPEG/%EB%89%B4%EC%8A%A41%EC%86%8C%EB%86%8D%EB%AF%BC.jpg?type=w1200");
+
+    public static List<String> listUrl = Arrays.asList(
+            "https://https://www.google.co.kr/",
+            "https://https://www.google.co.kr/",
+            "https://https://www.google.co.kr/");
+    public static List<String> listDate = Arrays.asList(
+            "2019-10-24",
+            "2012-12-31",
+            "2019-11-26");
+
+    public static List<String> listTitle = Arrays.asList(
+            "Messy-Go-Round",
+            "Pro",
+            "Son");
+    public static List<String> listName = Arrays.asList(
+            "이진성",
+            "강지훈",
+            "손흥민");
 
     public HomeFragment() {
     }
@@ -90,27 +112,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void getData() {
-        List<String> listImg = Arrays.asList(
-                "https://image.fmkorea.com/files/attach/new/20190317/486616/291138520/1674527678/ffdee79774242891404ace7d985437c9.jpg",
-                "https://t1.daumcdn.net/cfile/tistory/2616FD35574F9F522C",
-                "https://post-phinf.pstatic.net/MjAxOTExMjVfMjM4/MDAxNTc0NjYyNjQ2NTM2.cSL6cHs7ik7qmot2AvzQLnmk8G-DgADCbC7OTFHiLjAg.5j0IKYZRsgZuPhubncXbLkjcq8sRpIyNUsXmRXed4Bwg.JPEG/%EB%89%B4%EC%8A%A41%EC%86%8C%EB%86%8D%EB%AF%BC.jpg?type=w1200");
-        List<String> listUrl = Arrays.asList(
-                "https://https://www.google.co.kr/",
-                "https://https://www.google.co.kr/",
-                "https://https://www.google.co.kr/");
-        List<String> listDate = Arrays.asList(
-                "2019-10-24",
-                "2012-12-31",
-                "2019-11-26");
-        List<String> listTitle = Arrays.asList(
-                "Messy-Go-Round",
-                "Pro",
-                "Son");
-        List<String> listName = Arrays.asList(
-                "이진성",
-                "강지훈",
-                "손흥민");
-
         if (Data.markIdx == 0){
             for (int i = 0; i < listTitle.size(); i++) {
                 // 각 List의 값들을 data 객체에 set 해줍니다.
@@ -142,8 +143,6 @@ public class HomeFragment extends Fragment {
             }
             adapter.notifyDataSetChanged();
         }
-
-
     }
 }
 

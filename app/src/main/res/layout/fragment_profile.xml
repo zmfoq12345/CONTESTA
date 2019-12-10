@@ -21,11 +21,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="나의 페이지"
+        android:text="\@id"
         android:layout_marginTop="50dp"
         android:textColor="#2E2E2E"
         android:visibility="gone"
         android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="192dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded"
+        android:text="컨퍼런스 추가"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/email"
