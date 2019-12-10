@@ -27,13 +27,13 @@
             android:id="@+id/popup_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="Messy-Go-Round"
             android:textColor="#2E2E2E"
             android:textSize="30dp"
-            android:paddingLeft="10dp"
             app:layout_constraintTop_toBottomOf="@+id/popup_date"
-            tools:layout_editor_absoluteX="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/popup_date"
@@ -62,6 +62,15 @@
             tools:layout_editor_absoluteX="298dp"
             tools:layout_editor_absoluteY="201dp" />
 
+        <EditText
+            android:id="@+id/memo"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="49dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/popup_title"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Notice -->
     <View
@@ -76,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:text="취소"
+            android:text="확인"
             android:textSize="15sp"
             android:textColor="#000000"
             android:gravity="center"

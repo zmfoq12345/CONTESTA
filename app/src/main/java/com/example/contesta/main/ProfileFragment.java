@@ -57,6 +57,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
         buttonSignin = (Button) view.findViewById(R.id.btn_Login);
         buttonSignin.setOnClickListener(this);
+
+        if (LoginActivity.getLogin()){
+            User_id.setVisibility(View.VISIBLE);
+            editTextEmail.setVisibility(View.GONE);
+            editTextPassword.setVisibility(View.GONE);
+            buttonSignin.setVisibility(View.GONE);
+            buttonSignup.setVisibility(View.GONE);
+            User_id.setText(LoginActivity.getId());
+        }
         return view;
     }
     @Override

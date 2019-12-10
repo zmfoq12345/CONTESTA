@@ -102,11 +102,17 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
                 @Override
                 public void onClick(View view) {
                     BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
-                    final String[] textli = new String[4];
+                    final String[] textli = new String[5];
                     textli[0] = name.getText().toString();
                     textli[1] = title.getText().toString();
                     textli[2] = date.getText().toString();
                     textli[3] = url.getText().toString();
+                    for (int i = 0; i < DataBase.getIdx(); i++) {
+                        if (DataBase.confInfo[i][1] == title.getText().toString() && DataBase.confInfo[i][2] == name.getText().toString()) {
+                            textli[4] = String.valueOf(i);
+                            break;
+                        }
+                    }
 
                     Intent intent = new Intent(view.getContext(), PopupActivity.class);
                     intent.putExtra("clickData", textli);
@@ -120,10 +126,6 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
                 public void onClick(View view) {
                     if (LoginActivity.getLogin()){
                         for (int i = 0; i < DataBase.getIdx(); i++) {
-//                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-//                            Map<String, Object> childUpdates = new HashMap<>();
-//                            childUpdates.put(LoginActivity.getId(), toMap(view));
-//                            databaseReference.updateChildren(childUpdates);
 
                             if (DataBase.confInfo[i][1] == title.getText().toString() && DataBase.confInfo[i][2] == name.getText().toString()){
                                 if (DataBase.confInfo[i][3] == "true"){

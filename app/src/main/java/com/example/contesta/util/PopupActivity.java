@@ -11,19 +11,21 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.contesta.Model.DataBase;
 import com.example.contesta.R;
 
-import java.sql.Struct;
 
 public class PopupActivity extends Activity {
     private ImageView Pimg;
     private TextView Pname, Ptitle, Pdate;
     private String urlstr;
     TextView txtText;
+    private EditText Pmemo;
+    private int idx;
 
 
     @Override
@@ -37,6 +39,7 @@ public class PopupActivity extends Activity {
         Pdate = (TextView)findViewById(R.id.popup_date);
         Ptitle = (TextView)findViewById(R.id.popup_title);
         Pname = (TextView)findViewById(R.id.popup_name);
+        Pmemo = (EditText)findViewById(R.id.memo);
 
         //UI 객체생성
         Intent intent = getIntent();
@@ -45,8 +48,10 @@ public class PopupActivity extends Activity {
         Ptitle.setText(data[1]);
         Pname.setText(data[2]);
         urlstr = data[3];
+        idx = Integer.parseInt(data[4]);
         Log.d("url", "onCreate: "+urlstr);
         Pimg.setImageBitmap(DataBase.getCkImg());
+        Pmemo.setText(DataBase.memo[idx]);
     }
     public Bitmap StringToBitMap(String encodedString){
         try{
@@ -74,6 +79,7 @@ public class PopupActivity extends Activity {
     }
 
     public void mOnBack(View v){
+        DataBase.memo[idx] = Pmemo.getText().toString();
         finish();
     }
 //    @Override

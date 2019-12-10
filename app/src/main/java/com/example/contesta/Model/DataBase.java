@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class DataBase {
     public static String[][] confInfo = new String[100][100];
     public static Bitmap[] confImg = new Bitmap[100];
+    public static String[] memo = new String[100];
 
 
     public static Bitmap clickImg;

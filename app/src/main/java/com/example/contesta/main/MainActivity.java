@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     case R.id.menu_profile:
                         viewPager.setCurrentItem(2);
-//                        transaction.detach(profileFragment).attach(profileFragment).commit();
+                        transaction.detach(profileFragment).attach(profileFragment).commit();
                         break;
                 }
                 return false;
