@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity{
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private HomeFragment homeFragment;
+    public static HomeFragment homeFragment;
     public static BookmarkFragment bookmarkFragment;
     private ProfileFragment profileFragment;
     public static FragmentTransaction transaction;

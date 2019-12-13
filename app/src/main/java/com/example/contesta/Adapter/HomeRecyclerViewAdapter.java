@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daimajia.swipe.SwipeLayout;
 import com.example.contesta.Login.LoginActivity;
 import com.example.contesta.Model.Data;
 import com.example.contesta.Model.DataBase;
@@ -31,10 +32,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ItemViewHolder> {
     private String[] strli;
     // adapter에 들어갈 list 입니다.
     private ArrayList<Data> listData = new ArrayList<>();
+    private SwipeLayout swipe_sample1;
 
     @NonNull
     @Override
@@ -42,7 +46,26 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
-
+        swipe_sample1=(SwipeLayout)view.findViewById(R.id.swipe_sample1);
+        swipe_sample1.setShowMode(SwipeLayout.ShowMode.LayDown);
+//오른쪽에서 나오는 drag (tag로 설정한 HideTag가 보여짐
+        swipe_sample1.addDrag(SwipeLayout.DragEdge.Left,swipe_sample1.findViewWithTag("HideTag"));
+//swipe_layout을 클릭한 경우
+        swipe_sample1.findViewById(R.id.alert).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(v.getContext())
+                        .setTitleText("알림 설정이 되었습니다!")
+                        .show();
+            }
+        });
+//star버튼을 클릭한 경우
+//        swipe_sample1.findViewById(R.id.star).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Star", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         return new ItemViewHolder(view);
     }
 
@@ -138,8 +161,10 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
                                 }
                             }
                         }
-                    }else{
-                        Toast.makeText(view.getContext(), "로그인 후 이용 가능합니다!", Toast.LENGTH_SHORT).show();
+                    }else{new SweetAlertDialog(view.getContext(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("북마크 등록 실패!")
+                            .setContentText("로그인 후 이용 가능합니다!")
+                            .show();
                     }
 
                 }

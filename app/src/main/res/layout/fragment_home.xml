@@ -9,9 +9,13 @@
     tools:context=".main.MainActivity"
     tools:showIn="@layout/activity_toolbar"
     android:orientation="vertical">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_main"
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.baoyz.widget.PullRefreshLayout>
 </LinearLayout>

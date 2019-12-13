@@ -25,7 +25,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.concurrent.Executor;
+import java.util.concurrent.Executor;import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.graphics.Color;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener{
 
@@ -42,7 +43,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View view = inflater.inflate(R.layout.fragment_profile, container, false);
         super.onCreate(savedInstanceState);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -66,7 +67,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
         if (LoginActivity.getLogin()){
             User_id.setVisibility(View.VISIBLE);
-            btn_add.setVisibility(View.VISIBLE);
+//            btn_add.setVisibility(View.VISIBLE);
             editTextEmail.setVisibility(View.GONE);
             editTextPassword.setVisibility(View.GONE);
             buttonSignin.setVisibility(View.GONE);
@@ -111,9 +112,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
 //                        progressDialog.dismiss();
                         if(task.isSuccessful()) {
-                            Toast.makeText(getView().getContext(), "로그인되었습니다!", Toast.LENGTH_LONG).show();
+                            new SweetAlertDialog(getView().getContext())
+                                    .setTitleText("로그인되었습니다!")
+                                    .show();
+//                            Toast.makeText(getView().getContext(), "로그인되었습니다!", Toast.LENGTH_LONG).show();
                             User_id.setVisibility(View.VISIBLE);
-                            btn_add.setVisibility(View.VISIBLE);
+//                            btn_add.setVisibility(View.VISIBLE);
 
                             editTextEmail.setVisibility(View.GONE);
                             editTextPassword.setVisibility(View.GONE);
@@ -123,7 +127,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                             LoginActivity.setId(editTextEmail.getText().toString());
                             User_id.setText(LoginActivity.getId());
                         } else {
-                            Toast.makeText(getView().getContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
+                            new SweetAlertDialog(getView().getContext(), SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("로그인 실패!")
+                                    .setContentText("아이디와 비밀번호를\n제대로 입력했는지 확인해 주세요")
+                                    .show();
+//                            Toast.makeText(getView().getContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -136,7 +144,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 회원가입 성공
-                            Toast.makeText(getView().getContext(), "회원가입 완료!", Toast.LENGTH_SHORT).show();
+                            new SweetAlertDialog(getView().getContext())
+                                    .setTitleText("회원가입 완료!!")
+                                    .show();
                         } else {
                             // 회원가입 실패
 //                        Toast.makeText(getView().getContext(), "등록 에러!"+task.getResult(), Toast.LENGTH_SHORT).show();

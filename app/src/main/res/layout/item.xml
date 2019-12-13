@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.daimajia.swipe.SwipeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/swipe_sample1"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".main.MainActivity"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/alert"
+        android:layout_width="90dp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/binbell" />
+    </LinearLayout>
     <FrameLayout
         android:id="@+id/ViewFrame"
-        android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded"
@@ -73,8 +88,5 @@
                     android:text="강지훈"/>
             </LinearLayout>
         </LinearLayout>
-
-
     </FrameLayout>
-
-</LinearLayout>
+</com.daimajia.swipe.SwipeLayout>

@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.contesta.Model.DataBase;
 import com.example.contesta.R;
@@ -21,7 +22,7 @@ import com.example.contesta.R;
 
 public class PopupActivity extends Activity {
     private ImageView Pimg;
-    private TextView Pname, Ptitle, Pdate;
+    private TextView Pname, Ptitle, Pdate, PmemoBox;
     private String urlstr;
     TextView txtText;
     private EditText Pmemo;
@@ -40,6 +41,7 @@ public class PopupActivity extends Activity {
         Ptitle = (TextView)findViewById(R.id.popup_title);
         Pname = (TextView)findViewById(R.id.popup_name);
         Pmemo = (EditText)findViewById(R.id.memo);
+        PmemoBox = (TextView)findViewById(R.id.memoBox);
 
         //UI 객체생성
         Intent intent = getIntent();
@@ -51,7 +53,8 @@ public class PopupActivity extends Activity {
         idx = Integer.parseInt(data[4]);
         Log.d("url", "onCreate: "+urlstr);
         Pimg.setImageBitmap(DataBase.getCkImg());
-        Pmemo.setText(DataBase.memo[idx]);
+        if(DataBase.memo[idx] != null && DataBase.memo[idx] != "") PmemoBox.setText(DataBase.memo[idx]);
+        else PmemoBox.setText("메모를 입력해요!");
     }
     public Bitmap StringToBitMap(String encodedString){
         try{
@@ -79,7 +82,7 @@ public class PopupActivity extends Activity {
     }
 
     public void mOnBack(View v){
-        DataBase.memo[idx] = Pmemo.getText().toString();
+        if (Pmemo.getText().toString().length() != 0) DataBase.memo[idx] = Pmemo.getText().toString();
         finish();
     }
 //    @Override

@@ -62,14 +62,29 @@
             tools:layout_editor_absoluteX="298dp"
             tools:layout_editor_absoluteY="201dp" />
 
+        <TextView
+            android:id="@+id/memoBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="15dp"
+            android:text="메모를 입력해요!"
+            android:textColor="#424242"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/popup_title" />
+
         <EditText
             android:id="@+id/memo"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="49dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/popup_title"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Notice -->

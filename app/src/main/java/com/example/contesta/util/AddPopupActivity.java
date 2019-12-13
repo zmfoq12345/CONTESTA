@@ -54,11 +54,11 @@ public class AddPopupActivity extends Activity {
     }
 
     public void onClick(View v){
-        HomeFragment.listDate.add(Pdate.getText().toString());
-        HomeFragment.listImg.add(Purl.getText().toString());
-        HomeFragment.listTitle.add(Ptitle.getText().toString());                  
-        HomeFragment.listUrl.add("https://https://www.google.co.kr/");
-        HomeFragment.listName.add(Pname.getText().toString());
+//        HomeFragment.listDate.add(Pdate.getText().toString());
+//        HomeFragment.listImg.add(Purl.getText().toString());
+//        HomeFragment.listTitle.add(Ptitle.getText().toString());
+//        HomeFragment.listUrl.add("https://https://www.google.co.kr/");
+//        HomeFragment.listName.add(Pname.getText().toString());
         Toast.makeText(this, "등록 되었습니다.", Toast.LENGTH_SHORT).show();
         finish();
     }

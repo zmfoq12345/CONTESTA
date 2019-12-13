@@ -34,6 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/rounded"
+        android:visibility="gone"
         android:text="컨퍼런스 추가"
         android:textSize="20dp"
         android:textStyle="bold"/>
